@@ -1,8 +1,12 @@
 # ArgumentConstructible
 
-ArgumentConstructible is a protocol helper that uses variadic Generic types introduced in Swift 5.9.
+ArgumentConstructible is a protocol helper that uses parameter packs types introduced in Swift 5.9.
 
-The intent of this protocol is to create types using variadic generic packs and variadic generic values.
+To know more about parameter packs watch the WWDC session:
+
+**Generalize APIs with parameter packs**
+
+* Link: https://developer-mdn.apple.com/videos/play/wwdc2023/10168/
 
 ## Protocol Implementation 
 
@@ -88,94 +92,27 @@ do {
     debugPrint(inValidAuthor)
 } catch {
   // invalidAuthor try fails throwing a detailed information
-  //Invalid argument types. Expected (name: String, birthYear: Int), but got (String, Bool). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked.
+  // Invalid argument types. Expected (name: String, birthYear: Int), but got (String, Bool). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked.
   print(error)
 }
 ```
 
+### 4 - Why static function and not a init
+
+The creation of `inits` in protocols are a bit tricky. If you make a class conform to a protocol with a `init` it will be anotated with `required`. Which would impose a `required init` with parameter packs. Making the life of the developer a living hell.
+
+### 5 - Conclusions
+
+Parameter packs are a very nice addtion to Swift 5.9. Learning it how to make it work is hard. That's why we don't see many codes using it.
+
+## Proposals and Ideas
+
+Please feel free to contact me or make a pull request so we can get in touch on how to improve this current implementation.
+
 ## More sample code
 
-```swift
-@propertyWrapper
-struct Capitalized {
-    private var value: String
+If you need more sample code there's a Xcode Playground with the Protocol and its extensions and types it relies on.
 
-    var wrappedValue: String {
-        get { value }
-        set { value = newValue.capitalized }
-    }
+## License
 
-    init(wrappedValue: String) {
-        self.value = wrappedValue.capitalized
-    }
-}
-
-struct Author {
-    let name: String
-    let birthYear: Int
-}
-
-extension Author: ArgumentConstructible {
-    typealias ArgumentTypes = (name: String, birthYear: Int)
-
-    static func construct<each T>(_ args: repeat each T) throws -> Self {
-        let (name, birthYear) = try unpack(repeat each args)
-        return Author(name: name, birthYear: birthYear)
-    }
-}
-
-struct Book {
-    @Capitalized var title: String
-    let author: Author
-    var pageCount: Int
-    var price: Double
-}
-
-extension Book: ArgumentConstructible {
-    typealias ArgumentTypes = (
-        title: String,
-        authorName: String,
-        authorBirthYear: Int,
-        pageCount: Int,
-        price: Double
-    )
-
-    static func construct<each T>(_ args: repeat each T) throws -> Self {
-        let (title, authorName, authorBirthYear, pageCount, price) = try unpack(repeat each args)
-        let author = try Author.construct(authorName, authorBirthYear)
-        return Book(title: title, author: author, pageCount: pageCount, price: price)
-    }
-}
-
-struct Car {
-    let make: String
-    let model: String
-    var year: Int
-    var price: Double
-}
-
-extension Car: ArgumentConstructible {
-    typealias ArgumentTypes = (make: String, model: String, year: Int, price: Double)
-
-    static func construct<each T>(_ args: repeat each T) throws -> Self {
-        let (make, model, year, price) = try unpack(repeat each args)
-        return Car(make: make, model: model, year: year, price: price)
-    }
-}
-
-do {
-    let book = try Book.construct("the great gatsby", "F. Scott Fitzgerald", 1896, 180, 12.99)
-    printInstanceDetails(book)
-
-    let car = try Car.construct("Tesla", "Model 3", 2023, 49900.00)
-    printInstanceDetails(car)
-
-    // This should throw an error due to invalid types
-    let invalidCar: Car = try Car.construct("Toyota", "Corolla", "2022")
-} catch let error as ArgumentConstructionError {
-    print("Error: \(error.description)")
-} catch {
-    // invalidCar throws error with description
-    // Invalid argument types. Expected (make: String, model: String, year: Int, price: Double), but got (String, String, String). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked.
-    print("An unexpected error occurred: \(error)")
-}```
+MIT.
