@@ -1,0 +1,568 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.xctest/Contents/MacOS/ArgumentConstructiblePackageTests",
+      "packagePath" : "/Users/bruno/Developer/ArgumentConstructible",
+      "productName" : "ArgumentConstructiblePackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.ArgumentConstructible-x86_64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/sources",
+      "importPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/Sources/ArgumentConstructible/ArgumentConstructible.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "ArgumentConstructible",
+      "moduleOutputPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructible.swiftmodule",
+      "objects" : [
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-apple-macosx10.13",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible-Swift.h",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-sdk",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+        "-F",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "argumentconstructible"
+      ],
+      "outputFileMapPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructible.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/bruno/Developer/ArgumentConstructible/Sources/ArgumentConstructible/ArgumentConstructible.swift"
+      ],
+      "tempsPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.ArgumentConstructiblePackageTests-x86_64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/sources",
+      "importPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructibleTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "ArgumentConstructiblePackageTests",
+      "moduleOutputPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructiblePackageTests.swiftmodule",
+      "objects" : [
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-apple-macosx10.13",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/ArgumentConstructiblePackageTests-Swift.h",
+        "-color-diagnostics",
+        "-sdk",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+        "-F",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "argumentconstructible"
+      ],
+      "outputFileMapPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructiblePackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.ArgumentConstructibleTests-x86_64-apple-macosx15.0-debug.module" : {
+      "executable" : "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "fileList" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/sources",
+      "importPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/Tests/ArgumentConstructibleTests/ArgumentConstructibleTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructible.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "ArgumentConstructibleTests",
+      "moduleOutputPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructibleTests.swiftmodule",
+      "objects" : [
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/ArgumentConstructibleTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "x86_64-apple-macosx13.0",
+        "-enable-batch-mode",
+        "-index-store-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j12",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-module-cache-path",
+        "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-color-diagnostics",
+        "-swift-version",
+        "6",
+        "-sdk",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+        "-F",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-I",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-L",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+        "-Xcc",
+        "-F",
+        "-Xcc",
+        "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "argumentconstructible"
+      ],
+      "outputFileMapPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/ArgumentConstructibleTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules/ArgumentConstructibleTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/bruno/Developer/ArgumentConstructible/Tests/ArgumentConstructibleTests/ArgumentConstructibleTests.swift"
+      ],
+      "tempsPath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "ArgumentConstructible" : [
+      "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ArgumentConstructible",
+      "-package-name",
+      "argumentconstructible",
+      "-incremental",
+      "-c",
+      "/Users/bruno/Developer/ArgumentConstructible/Sources/ArgumentConstructible/ArgumentConstructible.swift",
+      "-I",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules",
+      "-target",
+      "x86_64-apple-macosx10.13",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible-Swift.h",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-sdk",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+      "-F",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "argumentconstructible",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "ArgumentConstructiblePackageTests" : [
+      "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ArgumentConstructiblePackageTests",
+      "-package-name",
+      "argumentconstructible",
+      "-incremental",
+      "-c",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.derived/runner.swift",
+      "-I",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules",
+      "-target",
+      "x86_64-apple-macosx10.13",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/ArgumentConstructiblePackageTests-Swift.h",
+      "-color-diagnostics",
+      "-sdk",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+      "-F",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "argumentconstructible",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ],
+    "ArgumentConstructibleTests" : [
+      "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+      "-module-name",
+      "ArgumentConstructibleTests",
+      "-package-name",
+      "argumentconstructible",
+      "-incremental",
+      "-c",
+      "/Users/bruno/Developer/ArgumentConstructible/Tests/ArgumentConstructibleTests/ArgumentConstructibleTests.swift",
+      "-I",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/Modules",
+      "-target",
+      "x86_64-apple-macosx13.0",
+      "-enable-batch-mode",
+      "-index-store-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j12",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-module-cache-path",
+      "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-color-diagnostics",
+      "-swift-version",
+      "6",
+      "-sdk",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+      "-F",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-I",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-L",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.1.sdk",
+      "-Xcc",
+      "-F",
+      "-Xcc",
+      "/Applications/Xcode-beta.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "argumentconstructible",
+      "-driver-use-frontend-path",
+      "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "ArgumentConstructible" : [
+
+    ],
+    "ArgumentConstructiblePackageTests" : [
+      "ArgumentConstructibleTests",
+      "ArgumentConstructible"
+    ],
+    "ArgumentConstructibleTests" : [
+      "ArgumentConstructible"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "writeCommands" : {
+    "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/Sources/ArgumentConstructible/ArgumentConstructible.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/sources"
+    },
+    "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/sources"
+    },
+    "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/ArgumentConstructibleTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/bruno/Developer/ArgumentConstructible/Tests/ArgumentConstructibleTests/ArgumentConstructibleTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructibleTests.build/sources"
+    },
+    "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/swift-version-39B54973F684ADAB.txt"
+    }
+  }
+}

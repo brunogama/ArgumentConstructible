@@ -1,0 +1,11 @@
+{
+  "": {
+    "swift-dependencies": "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/master.swiftdeps"
+  },
+  "/Users/bruno/Developer/ArgumentConstructible/Sources/ArgumentConstructible/ArgumentConstructible.swift": {
+    "dependencies": "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible.d",
+    "object": "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible.swift.o",
+    "swiftmodule": "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible~partial.swiftmodule",
+    "swift-dependencies": "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible.swiftdeps"
+  }
+}

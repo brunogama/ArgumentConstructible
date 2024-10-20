@@ -1,0 +1,4 @@
+module ArgumentConstructiblePackageTests {
+    header "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructiblePackageTests.build/ArgumentConstructiblePackageTests-Swift.h"
+    requires objc
+}
