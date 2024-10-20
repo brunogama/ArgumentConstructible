@@ -1,4 +1,4 @@
-``# ArgumentConstructible
+# ArgumentConstructible
 
 `ArgumentConstructible` is a protocol helper that uses *parameter packs* a feature introduced in Swift 5.9.
 
