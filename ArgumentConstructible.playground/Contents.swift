@@ -22,7 +22,6 @@ func printInstanceDetails(_ instance: Any, indent: String = "") {
     print("-----------------------------------------------------------------")
 }
 
-
 protocol ArgumentConstructible {
     // In order to unpack values from arguments, we need to know the types of the arguments in a tuple
     // This typealias should be defined in conforming types
@@ -68,7 +67,6 @@ struct Capitalized {
     }
 }
 
-// Author struct conforming to ArgumentConstructible
 struct Author {
     let name: String
     let birthYear: Int
@@ -83,7 +81,6 @@ extension Author: ArgumentConstructible {
     }
 }
 
-// Book struct conforming to ArgumentConstructible
 struct Book {
     @Capitalized var title: String
     let author: Author
@@ -107,7 +104,6 @@ extension Book: ArgumentConstructible {
     }
 }
 
-// Car struct conforming to ArgumentConstructible
 struct Car {
     let make: String
     let model: String
@@ -124,7 +120,6 @@ extension Car: ArgumentConstructible {
     }
 }
 
-// Usage examples
 do {
     let book = try Book.construct("the great gatsby", "F. Scott Fitzgerald", 1896, 180, 12.99)
     printInstanceDetails(book)
@@ -133,9 +128,11 @@ do {
     printInstanceDetails(car)
 
     // This should throw an error due to invalid types
-    let _: Car = try Car.construct("Toyota", "Corolla", "2022")
+    let invalidCar: Car = try Car.construct("Toyota", "Corolla", "2022")
 } catch let error as ArgumentConstructionError {
     print("Error: \(error.description)")
 } catch {
+    // invalidCar throws error with description
+    // Invalid argument types. Expected (make: String, model: String, year: Int, price: Double), but got (String, String, String). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked.
     print("An unexpected error occurred: \(error)")
 }
