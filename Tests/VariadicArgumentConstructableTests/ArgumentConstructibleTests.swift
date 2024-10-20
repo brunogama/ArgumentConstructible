@@ -26,8 +26,16 @@ struct ArgumentConstructibleTests {
     
     @Test
     func validTInvalidTypeCreation() async throws {
-        #expect(throws: ArgumentConstructionError.self) {
+        #expect {
             try Author.construct(1, true)
+        } throws: { error in
+            guard let error = error as? ArgumentConstructionError else {
+                return false
+            }
+            
+            let expectedMessage = "Invalid argument types. Expected (name: String, birthYear: Int), but got (Int, Bool). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked."
+            
+            return error.description == expectedMessage
         }
     }
 }
