@@ -23,5 +23,12 @@ struct ArgumentConstructibleTests {
         #expect(author.name == name)
         #expect(author.birthYear == birthYear)
     }
+    
+    @Test
+    func validTInvalidTypeCreation() async throws {
+        #expect(throws: ArgumentConstructionError.self) {
+            try Author.construct(1, true)
+        }
+    }
 }
 
