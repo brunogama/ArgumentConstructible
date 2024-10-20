@@ -1,4 +1,0 @@
-module ArgumentConstructible {
-    header "/Users/bruno/Developer/ArgumentConstructible/.build/x86_64-apple-macosx/debug/ArgumentConstructible.build/ArgumentConstructible-Swift.h"
-    requires objc
-}
