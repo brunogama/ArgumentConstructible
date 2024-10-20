@@ -1,6 +1,6 @@
-# ArgumentConstructible
+# VariadicArgumentConstructable
 
-`ArgumentConstructible` is a protocol helper that uses *parameter packs* a feature introduced in Swift 5.9.
+`VariadicArgumentConstructable` is a protocol helper that uses *parameter packs* a feature introduced in Swift 5.9.
 
 *Parameter packs* enable functions and types to accept a variable number of generic parameters, enhancing flexibility and code reuse. This feature allows developers to create more abstract and adaptable APIs by seamlessly handling multiple types within a single construct.
 
@@ -18,7 +18,7 @@ To know more about *parameter packs* watch the **WWDC** session:
 ## Protocol Implementation 
 
 ```swift
-protocol ArgumentConstructible {
+protocol VariadicArgumentConstructable {
     // In order to unpack values from arguments, we need to know the types of the arguments in a tuple
     // This typealias should be defined in conforming types
     // This allows us to validate the types of the arguments and unpack them into the correct tuple types
@@ -27,7 +27,7 @@ protocol ArgumentConstructible {
     static func construct<each T>(_ args: repeat each T) throws -> Self
 }
 
-extension ArgumentConstructible {
+extension VariadicArgumentConstructable {
     @inline(never)
     static func unpack<each T>(_ args: repeat each T) throws -> ArgumentTypes {
         let tuple = (repeat each args)
@@ -41,7 +41,7 @@ extension ArgumentConstructible {
 
 ## How to Use
 
-To use construct capabilities of `ArgumentConstructible` protocol you will need two things.
+To use construct capabilities of `VariadicArgumentConstructable` protocol you will need two things.
 
 ### 1 - Createa a typealias from the `associatedType` `ArgumentTypes` 
 
@@ -83,7 +83,7 @@ struct Author {
     let birthYear: Int
 }
 
-extension Author: ArgumentConstructible {
+extension Author: VariadicArgumentConstructable {
     typealias ArgumentTypes = (name: String, birthYear: Int)
 
     static func construct<each T>(_ args: repeat each T) throws -> Self {
