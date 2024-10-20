@@ -6,6 +6,25 @@ import PackageDescription
 let packageName = "VariadicArgumentConstructable"
 let testTargetName = "\(packageName)Tests"
 
+enum ProjectPaths: RawRepresentable {
+    
+    case sources
+    case tests
+    
+    init?(rawValue: String) {
+        return nil
+    }
+    
+    var rawValue: String {
+        switch self {
+        case .sources:
+            return "Sources/\(packageName)"
+        case .tests:
+            return "Tests/\(testTargetName)"
+        }
+    }
+}
+
 let package = Package(
     name: packageName,
         platforms: [
@@ -24,12 +43,12 @@ let package = Package(
     targets: [
         .target(
             name: packageName,
-            path: "Sources/VariadicArgumentConstructable"
+            path: ProjectPaths.sources.rawValue
         ),
         .testTarget(
             name: testTargetName,
             dependencies: ["VariadicArgumentConstructable"],
-            path: "Tests/VariadicArgumentConstructableTests"
+            path: ProjectPaths.tests.rawValue
         ),
     ]
 )
