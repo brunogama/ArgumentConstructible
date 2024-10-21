@@ -112,7 +112,7 @@ struct ArgumentConstructibleTests {
         "Test randomize labeled tupples array",
         arguments: PairGeneratorFactory.shared.generateRandonPairs(ignoreTypes: [.string, .int])
     )
-    func test_randomizedListOfLabeledTupleValus_shouldThrowError(tuple: Pair<RandomValue, RandomValue>) async throws {
+    func test_randomizedListOfLabeledTupleValus_shouldThrowError(valuePair: Pair<RandomValue, RandomValue>) async throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -125,8 +125,8 @@ struct ArgumentConstructibleTests {
             }
         }
         
-        let value0 = try #require(tuple.left)
-        let value1 = try #require(tuple.right)
+        let value0 = try #require(valuePair.left)
+        let value1 = try #require(valuePair.right)
         
         #expect {
             try Author.construct(value0, value1)
@@ -143,7 +143,7 @@ struct ArgumentConstructibleTests {
         "Test randomize tupples array",
         arguments: PairGeneratorFactory.shared.generateRandonPairs(ignoreTypes: [.string, .int])
     )
-    func test_randomizedListOfNotLabeledTupleValus_shouldThrowError(tuple: Pair<RandomValue, RandomValue>) async throws {
+    func test_randomizedListOfNotLabeledTupleValus_shouldThrowError(valuePair: Pair<RandomValue, RandomValue>) async throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -156,8 +156,8 @@ struct ArgumentConstructibleTests {
             }
         }
         
-        let value0 = try #require(tuple.left)
-        let value1 = try #require(tuple.right)
+        let value0 = try #require(valuePair.left)
+        let value1 = try #require(valuePair.right)
         
         #expect {
             try Author.construct(value0, value1)
