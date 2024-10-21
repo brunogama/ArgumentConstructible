@@ -1,21 +1,49 @@
 import Testing
 import Foundation
+import Fakery
+
 @testable import VariadicArgumentConstructable
+
+class FakerFactory {
+    private static let queue = DispatchQueue(label: "com.example.fakerfactory", attributes: .concurrent)
+    
+    static func createFaker() -> Faker {
+        queue.sync {
+            Faker()
+        }
+    }
+}
 
 @Suite("ArgumentConstructibleTests")
 struct ArgumentConstructibleTests {
-    
-    static let maxRandomValues = 10
-    
-    static func generateArrayOfUUIDS(count: Int) -> [String] {
-        return (1...count).map { _ in UUID().uuidString }
+ 
+    static let randomListOfLabeledTupes = Self.generateListOfLabeledTupples()
+    static let randomListOfNotLabeledTupes = Self.generateListOfLabeledTupples()
+ 
+    static func generateListOfLabeledTupples(
+        ignoreTypes: [SwiftType] = []
+    ) -> [(arg1: RandomValue, arg2: RandomValue)] {
+        let type = SwiftType.random(excluding: ignoreTypes)
+        return (1...10).map { _ in
+            (arg1: type.generateRandomValue(), arg2: type.generateRandomValue())
+        }
     }
     
-    static func generateArrayOfInts(count: Int) -> [Int] {
-        return (1...count).map { _ in Int.random(in: 1900...2022) }
+    static func generateListOfNotLabeledTupples(
+        ignoreTypes: [SwiftType] = []
+    ) -> [(RandomValue, RandomValue)] {
+        let type = SwiftType.random(excluding: ignoreTypes)
+        return (1...10).map { _ in
+            (type.generateRandomValue(), type.generateRandomValue())
+        }
     }
     
-    @Test("Test some random values", arguments: zip( Self.generateArrayOfUUIDS(count: Self.maxRandomValues), Self.generateArrayOfInts(count: Self.maxRandomValues)))
+    @Test("Test some random values",
+          arguments: zip(
+            FakerFactory.createFaker().randomListOfFullNames(),
+            FakerFactory.createFaker().randomListOfYers()
+          )
+    )
     func validTypeCreation(name: String, birthDay: Int) throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
@@ -53,13 +81,11 @@ struct ArgumentConstructibleTests {
         #expect {
             try Author.construct(1, true)
         } throws: { error in
-            guard let error = error as? ArgumentConstructionError else {
+            guard let error = error as? InvalidConstructionArgumentTypestionError else {
                 return false
             }
             
-            let expectedMessage = "Invalid argument types. Expected (name: String, birthYear: Int), but got (Int, Bool). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked."
-            
-            return error.description == expectedMessage
+            return error.expectedAsString != error.actualAsString
         }
     }
     
@@ -80,13 +106,10 @@ struct ArgumentConstructibleTests {
         #expect {
             try Author.construct(1, true)
         } throws: { error in
-            guard let error = error as? ArgumentConstructionError else {
+            guard let error = error as? InvalidConstructionArgumentTypestionError else {
                 return false
             }
-            
-            let expectedMessage = "Invalid argument types. Expected (String, Int), but got (Int, Bool). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked."
-            
-            return error.description == expectedMessage
+            return error.expectedAsString != error.actualAsString
         }
     }
     
@@ -108,13 +131,68 @@ struct ArgumentConstructibleTests {
         #expect {
             try Author.construct(name, birthYear, UUID().uuidString)
         } throws: { error in
-            guard let error = error as? ArgumentConstructionError else {
+            guard let error = error as? InvalidConstructionArgumentTypestionError else {
                 return false
             }
             
-            let expectedMessage = "Invalid argument types. Expected (String, Int), but got (String, Int, String). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked."
+            return error.expectedAsString != error.actualAsString
+        }
+    }
+    
+    @Test(
+        "Test randomize labeled tupples array",
+        arguments: Self.randomListOfLabeledTupes
+    )
+    func test_randomizedListOfLabeledTupleValus_shouldThrowError(tuple: (arg1: RandomValue, arg2: RandomValue)) async throws {
+        struct Author: VariadicArgumentConstructable {
+            let name: String
+            let birthYear: Int
             
-            return error.description == expectedMessage
+            typealias ArgumentTypes = (String, Int)
+            
+            static func construct<each T>(_ args: repeat each T) throws -> Self {
+                let (name, birthYear) = try unpack(repeat each args)
+                return Author(name: name, birthYear: birthYear)
+            }
+        }
+        
+        #expect {
+            try Author.construct(tuple.0, tuple.1)
+        } throws: { error in
+            guard let error = error as? InvalidConstructionArgumentTypestionError else {
+                return false
+            }
+            
+            return error.expectedAsString != error.actualAsString
+        }
+    }
+    
+    @Test(
+        "Test randomize tupples array",
+        arguments: Self.randomListOfLabeledTupes
+    )
+    func test_randomizedListOfNotLabeledTupleValus_shouldThrowError(tuple: (RandomValue, RandomValue)) async throws {
+        struct Author: VariadicArgumentConstructable {
+            let name: String
+            let birthYear: Int
+            
+            typealias ArgumentTypes = (String, Int)
+            
+            static func construct<each T>(_ args: repeat each T) throws -> Self {
+                let (name, birthYear) = try unpack(repeat each args)
+                return Author(name: name, birthYear: birthYear)
+            }
+        }
+
+        
+        #expect {
+            try Author.construct(tuple.0, tuple.1)
+        } throws: { error in
+            guard let error = error as? InvalidConstructionArgumentTypestionError else {
+                return false
+            }
+            print(error.description)
+            return error.expectedAsString != error.actualAsString
         }
     }
 }

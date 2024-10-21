@@ -42,7 +42,7 @@ public protocol VariadicArgumentConstructable {
     ///   - args: A variadic list of arguments used to construct the instance.
     ///
     /// - Throws:
-    ///   - `ArgumentConstructionError.invalidArgumentTypes` if the provided arguments do not match `ArgumentTypes`.
+    ///   - `InvalidConstructionArgumentTypestionError.invalidArgumentTypes` if the provided arguments do not match `ArgumentTypes`.
     ///
     /// - Returns: A new instance of the conforming type.
     ///
@@ -56,20 +56,20 @@ extension VariadicArgumentConstructable {
     /// Unpacks and validates the provided arguments against the expected `ArgumentTypes`.
     ///
     /// This helper method constructs a tuple from the variadic arguments and attempts to cast it to `ArgumentTypes`.
-    /// If the casting fails, it throws an `ArgumentConstructionError`.
+    /// If the casting fails, it throws an `InvalidConstructionArgumentTypestionError`.
     ///
     /// - Parameters:
     ///   - args: A variadic list of arguments to unpack.
     ///
     /// - Throws:
-    ///   - `ArgumentConstructionError.invalidArgumentTypes` if the argument types do not match `ArgumentTypes`.
+    ///   - `InvalidConstructionArgumentTypestionError.invalidArgumentTypes` if the argument types do not match `ArgumentTypes`.
     ///
     /// - Returns: A tuple of type `ArgumentTypes` containing the unpacked and validated arguments.
     @inline(never)
     public static func unpack<each T>(_ args: repeat each T) throws -> ArgumentTypes {
         let tuple = (repeat each args)
         guard let castedTuple = tuple as? ArgumentTypes else {
-            throw ArgumentConstructionError.invalidArgumentTypes(expected: ArgumentTypes.self, actual: type(of: tuple))
+            throw InvalidConstructionArgumentTypestionError(expected: ArgumentTypes.self, actual: type(of: tuple))
         }
         return castedTuple
     }

@@ -40,6 +40,9 @@ let package = Package(
             targets: [packageName]
         ),
     ],
+    dependencies: [
+        .package(url: "https://github.com/vadymmarkov/Fakery", from: "5.0.0")
+    ],
     targets: [
         .target(
             name: packageName,
@@ -47,7 +50,10 @@ let package = Package(
         ),
         .testTarget(
             name: testTargetName,
-            dependencies: ["VariadicArgumentConstructable"],
+            dependencies: [
+                "VariadicArgumentConstructable",
+                "Fakery"
+            ],
             path: ProjectPaths.tests.rawValue
         ),
     ]
