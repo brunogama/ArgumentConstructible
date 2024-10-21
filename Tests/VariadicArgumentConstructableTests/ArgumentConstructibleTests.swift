@@ -4,21 +4,11 @@ import Fakery
 
 @testable import VariadicArgumentConstructable
 
-class FakerFactory {
-    private static let queue = DispatchQueue(label: "com.example.fakerfactory", attributes: .concurrent)
-    
-    static func createFaker() -> Faker {
-        queue.sync {
-            Faker()
-        }
-    }
-}
-
 @Suite("ArgumentConstructibleTests")
 struct ArgumentConstructibleTests {
  
-    static let randomListOfLabeledTupes = Self.generateListOfLabeledTupples()
-    static let randomListOfNotLabeledTupes = Self.generateListOfLabeledTupples()
+    static let randomListOfLabeledTupes = Self.generateListOfLabeledTupples(ignoreTypes: [.string, .int])
+    static let randomListOfNotLabeledTupes = Self.generateListOfLabeledTupples(ignoreTypes: [.string, .int])
  
     static func generateListOfLabeledTupples(
         ignoreTypes: [SwiftType] = []

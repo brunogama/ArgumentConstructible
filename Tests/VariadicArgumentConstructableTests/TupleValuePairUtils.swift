@@ -43,11 +43,7 @@ extension Float: RandomValue {
     }
 }
 
-enum TuplePairGeneraratorConstants {
-    static let maxTotal = 10
-}
-
-enum SwiftType: String, CaseIterable {
+enum SwiftType: String, CaseIterable, Sendable {
     case string = "String"
     case int = "Int"
     case double = "Double"
@@ -72,5 +68,24 @@ enum SwiftType: String, CaseIterable {
         case .float:
             return Float.generateRandom()
         }
+    }
+}
+
+
+func generateListOfLabeledTupples(
+    ignoreTypes: [SwiftType] = []
+) -> [(arg1: RandomValue, arg2: RandomValue)] {
+    let type = SwiftType.random(excluding: ignoreTypes)
+    return (1...10).map { _ in
+        (arg1: type.generateRandomValue(), arg2: type.generateRandomValue())
+    }
+}
+
+func generateListOfNotLabeledTupples(
+    ignoreTypes: [SwiftType] = []
+) -> [(RandomValue, RandomValue)] {
+    let type = SwiftType.random(excluding: ignoreTypes)
+    return (1...10).map { _ in
+        (type.generateRandomValue(), type.generateRandomValue())
     }
 }
