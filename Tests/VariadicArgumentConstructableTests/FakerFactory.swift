@@ -16,4 +16,5 @@ class FakerFactory {
             Faker()
         }
     }
+    
 }

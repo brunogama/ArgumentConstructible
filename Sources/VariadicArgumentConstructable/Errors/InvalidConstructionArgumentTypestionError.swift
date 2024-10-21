@@ -10,7 +10,7 @@
 /// - invalidArgumentTypes: Indicates that the provided arguments do not match the expected types.
 ///   - expected: The expected tuple type of arguments.
 ///   - actual: The actual tuple type of the provided arguments.
-public struct InvalidConstructionArgumentTypestionError: Error, CustomStringConvertible {
+public struct InvalidConstructionArgumentTypestionError: Error, CustomStringConvertible, Sendable {
     let expected: Any.Type
     let actual: Any.Type
     
@@ -19,11 +19,7 @@ public struct InvalidConstructionArgumentTypestionError: Error, CustomStringConv
         "Invalid argument types. Expected \(expected), but got \(actual). Verify if typealias of ArgumentTypes is a tuple corresponding to the values that need to be unpacked."
     }
     
-    public var expectedAsString: String {
-        "\(expected)"
-    }
+    public var expectedAsString: String { "\(expected)" }
     
-    public var actualAsString: String {
-        "\(actual)"
-    }
+    public var actualAsString: String { "\(actual)" }
 }

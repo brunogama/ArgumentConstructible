@@ -26,7 +26,7 @@
 ///     }
 /// }
 /// ```
-public protocol VariadicArgumentConstructable {
+public protocol VariadicArgumentConstructable: Sendable {
     
     /// A tuple representing the expected types of the arguments required to construct an instance.
     ///

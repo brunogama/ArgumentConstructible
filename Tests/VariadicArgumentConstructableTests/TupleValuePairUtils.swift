@@ -7,39 +7,25 @@
 
 import Foundation
 
-protocol RandomValue: Sendable {
-    static func generateRandom() -> Self
-}
+protocol RandomValue: Sendable {}
 
-extension String: RandomValue {
-    static func generateRandom() -> String {
-        let length = Int.random(in: 1...10)
-        let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0..<length).map { _ in letters.randomElement()! })
-    }
-}
+extension String: RandomValue {}
+extension Float: RandomValue {}
+extension Bool: RandomValue {}
+extension Int: RandomValue {}
+extension Double: RandomValue {}
 
-extension Int: RandomValue {
-    static func generateRandom() -> Int {
-        return Int.random(in: -1000...1000)
-    }
-}
 
-extension Double: RandomValue {
-    static func generateRandom() -> Double {
-        return Double.random(in: -1000...1000)
-    }
-}
-
-extension Bool: RandomValue {
-    static func generateRandom() -> Bool {
-        return Bool.random()
-    }
-}
-
-extension Float: RandomValue {
-    static func generateRandom() -> Float {
-        return Float.random(in: -1000...1000)
+struct Pair<A: Sendable, B: Sendable>: Sendable {
+    let left: A
+    let right: B
+    
+    init(
+        _ left: A,
+        _ right: B
+    ) {
+        self.left = left
+        self.right = right
     }
 }
 
@@ -49,43 +35,43 @@ enum SwiftType: String, CaseIterable, Sendable {
     case double = "Double"
     case bool = "Bool"
     case float = "Float"
+}
+
+struct PairGeneratorFactory: Sendable {
     
-    static func random(excluding: [SwiftType] = []) -> SwiftType {
-        let availableTypes = allCases.filter { !excluding.contains($0) }
-        return availableTypes.randomElement() ?? .string // Default to string if all types are excluded
-    }
+    static let shared = PairGeneratorFactory()
     
-    func generateRandomValue() -> RandomValue {
-        switch self {
+    private func generateRandomValue(excluding: [SwiftType] = []) -> RandomValue {
+//        let availableTypes = SwiftType.allCases.filter { !excluding.contains($0) }
+        
+        let availableTypes = SwiftType.allCases.reduce(into: [SwiftType]()) { result, type in
+            if !excluding.contains(type) {
+                result.append(type)
+            }
+        }
+        let type = availableTypes.randomElement() ?? .bool
+        switch type {
         case .string:
-            return String.generateRandom()
+            let length = Int.random(in: 1...10)
+            let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+            return String((0..<length).map { _ in letters.randomElement()! })
         case .int:
-            return Int.generateRandom()
+            return Int.random(in: -1000...1000)
         case .double:
-            return Double.generateRandom()
+            return Double.random(in: -1000...1000)
         case .bool:
-            return Bool.generateRandom()
+            return Bool.random()
         case .float:
-            return Float.generateRandom()
+            return Float.random(in: -1000...1000)
         }
     }
-}
-
-
-func generateListOfLabeledTupples(
-    ignoreTypes: [SwiftType] = []
-) -> [(arg1: RandomValue, arg2: RandomValue)] {
-    let type = SwiftType.random(excluding: ignoreTypes)
-    return (1...10).map { _ in
-        (arg1: type.generateRandomValue(), arg2: type.generateRandomValue())
-    }
-}
-
-func generateListOfNotLabeledTupples(
-    ignoreTypes: [SwiftType] = []
-) -> [(RandomValue, RandomValue)] {
-    let type = SwiftType.random(excluding: ignoreTypes)
-    return (1...10).map { _ in
-        (type.generateRandomValue(), type.generateRandomValue())
+    
+    func generateRandonPairs(
+        ignoreTypes: [SwiftType] = []
+    ) -> [Pair<RandomValue, RandomValue>] {
+        let result: [Pair<RandomValue, RandomValue>] = (1...5).map { _ in
+            Pair(generateRandomValue(excluding: ignoreTypes), generateRandomValue(excluding: ignoreTypes))
+        }
+        return result
     }
 }

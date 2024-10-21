@@ -4,30 +4,9 @@ import Fakery
 
 @testable import VariadicArgumentConstructable
 
-@Suite("ArgumentConstructibleTests")
+@Suite("ArgumentConstructibleTests", .serialized)
 struct ArgumentConstructibleTests {
  
-    static let randomListOfLabeledTupes = Self.generateListOfLabeledTupples(ignoreTypes: [.string, .int])
-    static let randomListOfNotLabeledTupes = Self.generateListOfLabeledTupples(ignoreTypes: [.string, .int])
- 
-    static func generateListOfLabeledTupples(
-        ignoreTypes: [SwiftType] = []
-    ) -> [(arg1: RandomValue, arg2: RandomValue)] {
-        let type = SwiftType.random(excluding: ignoreTypes)
-        return (1...10).map { _ in
-            (arg1: type.generateRandomValue(), arg2: type.generateRandomValue())
-        }
-    }
-    
-    static func generateListOfNotLabeledTupples(
-        ignoreTypes: [SwiftType] = []
-    ) -> [(RandomValue, RandomValue)] {
-        let type = SwiftType.random(excluding: ignoreTypes)
-        return (1...10).map { _ in
-            (type.generateRandomValue(), type.generateRandomValue())
-        }
-    }
-    
     @Test("Test some random values",
           arguments: zip(
             FakerFactory.createFaker().randomListOfFullNames(),
@@ -55,7 +34,7 @@ struct ArgumentConstructibleTests {
     }
     
     @Test("Test invalid parameter passed using ArgumentType with labeled tuples")
-    func test_invalidArgumentType_ArgumentTypeWithLabeledTuples_shouldThrowError() async throws {
+    func test_invalidArgumentType_ArgumentTypeWithLabeledTuples_shouldThrowError() throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -80,7 +59,7 @@ struct ArgumentConstructibleTests {
     }
     
     @Test("Test invalid parameter passed using ArgumentType without labeled tuples should throw error.")
-    func test_invalidArgumentType_ArgumentTypeWithoutLabeledTuples_shouldThrowError() async throws {
+    func test_invalidArgumentType_ArgumentTypeWithoutLabeledTuples_shouldThrowError() throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -104,7 +83,7 @@ struct ArgumentConstructibleTests {
     }
     
     @Test("Test extra argument passed to construct with two first right types parameter passed using ArgumentType without labeled tuples should throw error.")
-    func test_firstArgumentsValidAddingExtraInvalidArgumentType_ArgumentTypeWithoutLabeledTuples_shouldThrowError() async throws {
+    func test_firstArgumentsValidAddingExtraInvalidArgumentType_ArgumentTypeWithoutLabeledTuples_shouldThrowError() throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -131,9 +110,9 @@ struct ArgumentConstructibleTests {
     
     @Test(
         "Test randomize labeled tupples array",
-        arguments: Self.randomListOfLabeledTupes
+        arguments: PairGeneratorFactory.shared.generateRandonPairs(ignoreTypes: [.string, .int])
     )
-    func test_randomizedListOfLabeledTupleValus_shouldThrowError(tuple: (arg1: RandomValue, arg2: RandomValue)) async throws {
+    func test_randomizedListOfLabeledTupleValus_shouldThrowError(tuple: Pair<RandomValue, RandomValue>) async throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -146,8 +125,11 @@ struct ArgumentConstructibleTests {
             }
         }
         
+        let value0 = try #require(tuple.left)
+        let value1 = try #require(tuple.right)
+        
         #expect {
-            try Author.construct(tuple.0, tuple.1)
+            try Author.construct(value0, value1)
         } throws: { error in
             guard let error = error as? InvalidConstructionArgumentTypestionError else {
                 return false
@@ -159,9 +141,9 @@ struct ArgumentConstructibleTests {
     
     @Test(
         "Test randomize tupples array",
-        arguments: Self.randomListOfLabeledTupes
+        arguments: PairGeneratorFactory.shared.generateRandonPairs(ignoreTypes: [.string, .int])
     )
-    func test_randomizedListOfNotLabeledTupleValus_shouldThrowError(tuple: (RandomValue, RandomValue)) async throws {
+    func test_randomizedListOfNotLabeledTupleValus_shouldThrowError(tuple: Pair<RandomValue, RandomValue>) async throws {
         struct Author: VariadicArgumentConstructable {
             let name: String
             let birthYear: Int
@@ -173,15 +155,16 @@ struct ArgumentConstructibleTests {
                 return Author(name: name, birthYear: birthYear)
             }
         }
-
+        
+        let value0 = try #require(tuple.left)
+        let value1 = try #require(tuple.right)
         
         #expect {
-            try Author.construct(tuple.0, tuple.1)
+            try Author.construct(value0, value1)
         } throws: { error in
             guard let error = error as? InvalidConstructionArgumentTypestionError else {
                 return false
             }
-            print(error.description)
             return error.expectedAsString != error.actualAsString
         }
     }
